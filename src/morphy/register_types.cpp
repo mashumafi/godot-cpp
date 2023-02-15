@@ -1,4 +1,5 @@
 #include <register_types.hpp>
+#include <tests/test_scene_tree.hpp>
 #include <views/basic_table.hpp>
 #include <views/callable_view.hpp>
 #include <views/column_accessor.hpp>
@@ -34,6 +35,8 @@ void initialize_morphy_types(godot::ModuleInitializationLevel p_level) {
 
 	godot::ClassDB::register_class<morphy::ShaderColumn>();
 	godot::ClassDB::register_class<morphy::ShaderView>();
+
+	godot::ClassDB::register_class<morphy::TestSceneTree>();
 }
 
 void uninitialize_morphy_types(godot::ModuleInitializationLevel p_level) {

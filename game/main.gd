@@ -2,7 +2,7 @@ extends Node
 
 const column_increment := 5
 const row_increment := 5
-const STRESS_SIZE := 5_000
+const STRESS_SIZE := 15_000
 
 @onready var debug_text := $debug_text as RichTextLabel
 

@@ -4,17 +4,8 @@ import sys
 
 env = SConscript("godot-cpp/SConstruct")
 
-# For the reference:
-# - CCFLAGS are compilation flags shared between C and C++
-# - CFLAGS are for C-specific compilation flags
-# - CXXFLAGS are for C++-specific compilation flags
-# - CPPFLAGS are for pre-processor flags
-# - CPPDEFINES are for pre-processor defines
-# - LINKFLAGS are for linking flags
-
-# tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=["include", "include/morphy"])
-sources = [Glob("src/morphy/*.cpp"), Glob("src/morphy/views/*.cpp")]
+env.Append(CPPPATH=["include", "include/morphy"] + ["thirdparty/Catch2/extras"])
+sources = [Glob("src/morphy/*.cpp"), Glob("src/morphy/views/*.cpp"), Glob("src/morphy/tests/*.cpp"), "thirdparty/Catch2/extras/catch_amalgamated.cpp"]
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
